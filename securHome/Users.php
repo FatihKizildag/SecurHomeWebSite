@@ -7,6 +7,22 @@ $userAsk->execute();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $userId = $_POST['user_id'];
   
+  // E-posta adresi kontrolü yap
+  $checkEmail = $db->prepare("SELECT mail FROM users WHERE id = :user_id");
+  $checkEmail->bindParam(':user_id', $userId);
+  $checkEmail->execute();
+  $userEmail = $checkEmail->fetch(PDO::FETCH_ASSOC)['mail'];
+
+  if ($userEmail === 'admin@admin') {
+    // E-posta adresi "admin@admin" ise kullanıcıyı silemezsiniz uyarısı gönder
+    $response = array(
+      'status' => 'error',
+      'message' => 'You cannot delete this user.'
+    );
+    echo json_encode($response);
+    exit;
+  }
+
   // Kullanıcıyı veritabanından silmek için gerekli sorguyu çalıştır
   $deleteUser = $db->prepare("DELETE FROM users WHERE id = :user_id");
   $deleteUser->bindParam(':user_id', $userId);
@@ -14,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   // Kullanıcı silindikten sonra kullanıcıları listeleyen sayfaya yönlendir
   $response = array(
-      'status' => 'success',
-      'message' => 'User has been successfully deleted!'
+    'status' => 'success',
+    'message' => 'User has been successfully deleted!'
   );
   echo json_encode($response);
   exit;
@@ -180,6 +196,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       });
     }
   </script>
+  <script>
+  // Kullanıcıyı silmek için AJAX isteği gönderen fonksiyon
+  function deleteUser(userId) {
+    // E-posta adresini kontrol etmek için AJAX isteği gönder
+    $.ajax({
+      url: 'check_email.php', // E-posta kontrolü yapacak ayrı bir PHP dosyası
+      type: 'POST',
+      data: { user_id: userId },
+      dataType: 'json',
+      success: function (response) {
+        if (response.status === 'success') {
+          // E-posta adresi kontrolü başarılı ise kullanıcıyı silme işlemine devam et
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure you want to delete this user?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'I am sure!',
+            cancelButtonText: 'Cancel'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // AJAX isteği gönder
+              $.ajax({
+                url: 'users.php',
+                type: 'POST',
+                data: { user_id: userId },
+                dataType: 'json',
+                success: function (response) {
+                  if (response.status === 'success') {
+                    Swal.fire({
+                      title: 'Successful',
+                      text: response.message,
+                      icon: 'success'
+                    }).then(() => {
+                      // Kullanıcılar sayfasını yeniden yükle
+                      location.reload();
+                    });
+                  }
+                },
+                error: function () {
+                  Swal.fire({
+                    title: 'Error',
+                    text: 'An error occurred, please try again.',
+                    icon: 'error'
+                  });
+                }
+              });
+            }
+          });
+        } else if (response.status === 'error') {
+          // E-posta adresi "admin@admin" ise uyarı mesajı göster
+          Swal.fire({
+            title: 'Warning',
+            text: response.message,
+            icon: 'warning'
+          });
+        }
+      },
+      error: function () {
+        Swal.fire({
+          title: 'Error',
+          text: 'An error occurred, please try again.',
+          icon: 'error'
+        });
+      }
+    });
+  }
+</script>
 
   <!-- Template JavaScript -->
   <script src="assets/js/bootstrap.min.js"></script>
