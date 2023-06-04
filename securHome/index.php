@@ -427,61 +427,7 @@
       </div>
     </section>
 
-    <section class="w3l-footer-29-main w3l-copyright">
-      <div class="container">
-        <div class="row bottom-copies">
-          <p class="col-lg-8 copy-footer-29">
-          © 2023 Home Automation Systems. All rights reserved | Designed by
-            SecurHome LTD. ŞTİ.
-          </p>
-
-          <div class="col-lg-4 main-social-footer-29">
-            <a href="http://www.facebook.com" class="facebook"
-              ><span class="fa fa-facebook"></span
-            ></a>
-            <a href="http://www.twitter.com" class="twitter"
-              ><span class="fa fa-twitter"></span
-            ></a>
-            <a href="http://www.instagram.com" class="instagram"
-              ><span class="fa fa-instagram"></span
-            ></a>
-            <a href="http://www.linkedin.com" class="linkedin"
-              ><span class="fa fa-linkedin"></span
-            ></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        &#10548;
-      </button>
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction();
-        };
-
-        function scrollFunction() {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
-          }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- /move top -->
-    </section>
-
+    
     <!-- Template JavaScript -->
     <script src="assets/js/jquery-3.3.1.min.js"></script>
 
