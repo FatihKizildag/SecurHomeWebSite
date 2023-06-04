@@ -14,48 +14,54 @@ if ($conn->connect_error) {
     die("Could not connect to the database: " . $conn->connect_error);
 }
 
-// Get the posted data from the HTML form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["name_surname"]) && isset($_POST["mail"]) && isset($_POST["password"]) && isset($_POST["phone"])) {
-        $name_surname = filter_var($_POST["name_surname"], FILTER_SANITIZE_STRING);
-        $mail = filter_var($_POST["mail"], FILTER_SANITIZE_EMAIL);
-        $password = $_POST["password"];
-        $phone = filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT);
+// Initialize variables
+$name_surname = $mail = $password = $confirm_password = $phone = "";
 
+// Get the posted data from the HTML form when the Register button is clicked
+if (isset($_POST["register"])) {
+    $name_surname = filter_var($_POST["name_surname"], FILTER_SANITIZE_STRING);
+    $mail = filter_var($_POST["mail"], FILTER_SANITIZE_EMAIL);
+    $password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"];
+    $phone = filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT);
+
+    // Validate the input data
+    if (empty($name_surname) || empty($mail) || empty($password) || empty($confirm_password) || empty($phone)) {
+        echo '<script>alert("Please fill in all the fields.");</script>';
+    } elseif ($password !== $confirm_password) {
+        echo '<script>alert("Passwords do not match.");</script>';
+    } else {
         // Check whether the user with the same phone number exists in the database using the prepared statement
         $stmt = $conn->prepare("SELECT id FROM users WHERE phone = ?");
         $stmt->bind_param("s", $phone);
         $stmt->execute();
         $stmt->store_result();
-        
-        if ($_POST["password"] !== $_POST["confirm_password"]) {
-          echo "Passwords do not match.";
-          exit; // Hata mesajını gösterdikten sonra işlemi sonlandır
-      }
+
         // If there is a user registered with the same phone number, show an error message
         if ($stmt->num_rows > 0) {
             echo '<script>alert("There is a previously registered user with this phone number.");</script>';
         } else {
-            // If there is no registered user with the same phone number October, add the new user to the database
+            // If there is no registered user with the same phone number, add the new user to the database
             $stmt = $conn->prepare("INSERT INTO users (name_surname, mail, password, phone) VALUES (?, ? , ? , ?)");
             $stmt->bind_param("ssss", $name_surname, $mail, $password, $phone);
 
             // Running a SQL query
             if ($stmt->execute() === TRUE) {
-               echo '<script>alert("The user was added successfully.");</script>';
+                echo '<script>alert("The user was added successfully.");</script>';
             } else {
                 echo "Error: " . $stmt->error;
             }
 
             $stmt->close();
         }
-    } else {
-        echo '<script>alert("Sending incorrect or incomplete data.");</script>';
     }
 }
+
 // Close the database connection
 $conn->close();
 ?>
+
+
 
 
 
