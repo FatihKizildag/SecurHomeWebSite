@@ -6,9 +6,13 @@ This project includes a web application that allows users to control their home 
 Features
 
 User Login: Users can log in to the system with their registered accounts.
+
 Control of Home Appliances: Users can turn their home appliances on/off and check their status through the web interface. For example, turning lights on/off, changing thermostat settings, monitoring security cameras, etc.
+
 Alarm Management: Users can manage alarms and set alarm triggers for emergency situations such as burglary, fire, etc. They can also send notifications to the administrator in case of alarm events.
+
 Monthly Energy Consumption: After logging in, users can access a table that shows their monthly energy consumption. This table helps users make conscious decisions for energy savings.
+
 Contact Section: Non-registered users can access a contact section to submit complaints and requests. This contact section allows users to reach the administrator and provide feedback.
 
 Usage
