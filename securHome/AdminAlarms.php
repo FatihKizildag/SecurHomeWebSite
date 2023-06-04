@@ -72,7 +72,7 @@
       <div>
       <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Alarms History</h6>
+                            <h4 class="mb-4"><b>Alarms History</b></h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -151,11 +151,6 @@
                                     <button type="button" class="btn btn-primary">1</button>
                                     <button type="button" class="btn btn-primary">2</button>
                                     <button type="button" class="btn btn-primary">3</button>
-                                    <button type="button" class="btn btn-primary">4</button>
-                                    <button type="button" class="btn btn-primary">5</button>
-                                    <button type="button" class="btn btn-primary">6</button>
-                                    <button type="button" class="btn btn-primary">7</button>
-                                    <button type="button" class="btn btn-primary">8</button>
                                 
                             </div>
       </div>
@@ -170,12 +165,6 @@
     
 
 
-
-
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        &#10548;
-      </button>
       <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {

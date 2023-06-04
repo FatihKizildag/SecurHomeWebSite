@@ -1,3 +1,34 @@
+<?php
+// Database connection information
+$servername = "localhost"; // Database server name
+$username = "root"; // Database user name
+$password = ""; // Database password
+$dbname = "securhome"; // Database name
+
+// Connect Database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check Connection
+if ($conn->connect_error) {
+    die("Could not connect to the database: " . $conn->connect_error);
+}
+
+// Form submit işlemi kontrolü
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Formdaki verileri al
+  $name = $_POST['w3lName'];
+  $email = $_POST['w3lSender'];
+  $message = $_POST['w3lMessage'];
+
+  // Verileri veritabanına ekle
+  $sql = "INSERT INTO comment (name, email, message) VALUES ('$name', '$email', '$message')";
+  if ($conn->query($sql) === TRUE) {
+    echo '<script>alert("Datas saved successfully.");</script>';
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -125,7 +156,19 @@
                         </div>
                     </div>
                 </div>
-                
+                <div class="map-content-9 mt-lg-0 mt-4">
+                    <form class="form-horizontal" action="contact.php" method="post">
+                        <div class="twice-two">
+                            <input type="text" class="form-control" name="w3lName" name="name" placeholder="Name"
+                                required="">
+                            <input type="email" class="form-control" name="w3lSender" name="email" placeholder="Email"
+                                required="">
+                        </div>
+                        <textarea name="w3lMessage" class="form-control" name="message" placeholder="Message"
+                            required=""></textarea>
+                        <button type="submit" class="btn btn-contact">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

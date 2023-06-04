@@ -1,3 +1,9 @@
+<?php 
+include "./connection/connect.php";
+
+$commentAsk=$db->prepare("select * from comment");
+$commentAsk->execute();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,78 +72,40 @@
     </header>
                                                   <!--header-->
     
-    <section>
-      <div class="container-fluid pt-4 px-4">
+                                                  <section>
+    <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-sm-12 col-md-6 col-xl-12">
                 <div class="h-100 bg-light rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-2">
-                        <h6 class="mb-0">Messages</h6>
-                        <a href="">Show All</a>
+                        <h5 class="mb-0"><b>Messages</b></h5>
                     </div>
-                    <div class="d-flex align-items-center border-bottom py-3">
-                        <img class="rounded-circle flex-shrink-0" src="assets/images/user1.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="w-100 ms-3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-0">Keven</h6>
-                                <small>5 minutes ago</small>
+                    <?php
+                    while ($commentGet = $commentAsk->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                        <div class="d-flex align-items-center border-bottom py-3">
+                            <img class="rounded-circle flex-shrink-0" src="assets/images/user1.jpg" alt=""
+                                 style="width: 40px; height: 40px;">
+                            <div class="w-100 ms-3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-0"><?php echo $commentGet['name'] ?></h6>
+                                    <small><?php echo $commentGet['email'] ?></small>
+                                </div>
+                                <span><?php echo $commentGet['message'] ?></span>
                             </div>
-                            <span>Hello . I want more information </span>
                         </div>
-                    </div>
-                    <div class="d-flex align-items-center border-bottom py-3">
-                        <img class="rounded-circle flex-shrink-0" src="assets/images/user2.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="w-100 ms-3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-0">Hasan</h6>
-                                <small>8 minutes ago</small>
-                            </div>
-                            <span>I have an problem with my lights.</span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center border-bottom py-3">
-                        <img class="rounded-circle flex-shrink-0" src="assets/images/user1.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="w-100 ms-3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-0">Susan</h6>
-                                <small>15 minutes ago</small>
-                            </div>
-                            <span>Thank u sir. </span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center pt-3">
-                        <img class="rounded-circle flex-shrink-0" src="assets/images/user2.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="w-100 ms-3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-0">Anonymous</h6>
-                                <small>20 minutes ago</small>
-                            </div>
-                            <span>Your company is perfect.</span>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
-            
-            
-            
         </div>
     </div>
-    <!-- Chart End -->
-
-
-    
-</div>
-      
-      
-
-      
-    </section>
-
-
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
         &#10548;
       </button>
+</section>
+
+
       <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {

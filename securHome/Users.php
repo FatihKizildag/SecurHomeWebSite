@@ -1,3 +1,9 @@
+<?php 
+include "./connection/connect.php";
+
+$userAsk=$db->prepare("select * from users order by id asc");
+$userAsk->execute();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,136 +78,46 @@
       <div>
       <div class="col-12">
                         <div class="bg-light rounded h-100 p-4">
-                            <h6 class="mb-4">Responsive Table</h6>
+                            <h4 class="mb-4"><b>Responsive Table</b></h4>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">User ID</th>
-
-                                            <th scope="col">First Name</th>
-                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Name Surname</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Country</th>
-                                            
+                                            <th scope="col">Phone</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>US-7</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>jhon@email.com</td>
-                                            <td>USA</td>
-                                            
+                                    <?php 
+                                    $counter = 1;
+                                    while ($userGet=$userAsk->fetch(PDO::FETCH_ASSOC)) {?>
+                                          <tr>
+                                            <th scope="row"><?php echo $counter; ?></th>
+                                            <td><?php echo $userGet['id'] ?></td>
+                                            <td><?php echo $userGet['name_surname'] ?></td>
+                                            <td><?php echo $userGet['mail'] ?></td>
+                                            <td><?php echo $userGet['phone'] ?></td>
                                             <td><p style="color: yellowgreen;">Member</p></td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>US-9</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>mark@email.com</td>
-                                            <td>UK</td>
-                                           
-                                            <td><p style="color: yellowgreen;">Member</p></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>US-2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>jacob@email.com</td>
-                                            <td>AU</td>
-                                            
-                                            <td><p style="color: red;">Deleted Account</p></td>
-                                        </tr>
+                    
+                                        
+                                       <?php $counter++; } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
       </div>
-      <div class="btn-toolbar" role="toolbar" style="position:relative;margin: auto;" >
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                    <button type="button" class="btn btn-primary">1</button>
-                                    <button type="button" class="btn btn-primary">2</button>
-                                    <button type="button" class="btn btn-primary">3</button>
-                                    <button type="button" class="btn btn-primary">4</button>
-                                    <button type="button" class="btn btn-primary">5</button>
-                                    <button type="button" class="btn btn-primary">6</button>
-                                    <button type="button" class="btn btn-primary">7</button>
-                                    <button type="button" class="btn btn-primary">8</button>
-                                
-                            </div>
-      </div>
-
-
-    
-      
-
-
-      
-    </section>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-    
-
- 
-      <div class="container">
-        <div class="row bottom-copies">
-          <p class="col-lg-8 copy-footer-29">
-          © 2023 Home Automation Systems. All rights reserved | Designed by
-            SecurHome LTD. ŞTİ.
-          </p>
-
-          <div class="col-lg-4 main-social-footer-29">
-            <a href="http://www.facebook.com" class="facebook"
-              ><span class="fa fa-facebook"></span
-            ></a>
-            <a href="http://www.twitter.com" class="twitter"
-              ><span class="fa fa-twitter"></span
-            ></a>
-            <a href="http://www.instagram.com" class="instagram"
-              ><span class="fa fa-instagram"></span
-            ></a>
-            <a href="http://www.linkedin.com" class="linkedin"
-              ><span class="fa fa-linkedin"></span
-            ></a>
-          </div>
-        </div>
-      </div>
-
       <!-- move top -->
       <button onclick="topFunction()" id="movetop" title="Go to top">
         &#10548;
       </button>
+    </section>
+
       <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
