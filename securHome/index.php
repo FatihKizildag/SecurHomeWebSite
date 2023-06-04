@@ -80,7 +80,7 @@
                       </h5>
                       <a
                         class="btn btn-style transparent-btn mt-sm-5 mt-4"
-                        href="about.php"
+                        href="#"
                       >
                       Secure Home Smart Systems</a
                       >
@@ -102,7 +102,7 @@
                       </h5>
                       <a
                         class="btn btn-style transparent-btn mt-sm-5 mt-4"
-                        href="about.php"
+                        href="#"
                       >
                       Lighting Automation</a
                       >
@@ -167,7 +167,7 @@
           <div class="maghny-gd-1 col-lg-6">
             <div class="maghny-grid">
               <figure class="effect-lily">
-                <img class="img-fluid" src="assets/images/room1.jpg" alt="" />
+                <img class="img-fluid" src="assets/images/room1.jpg" alt="">
                 <figcaption class="w3set-hny">
                   <div>
                     <h4 class="top-text">
@@ -193,7 +193,7 @@
                     <li>
                       <span class="fa fa-check" aria-hidden="true"></span> Provides Energy Savings
     
-                  </ul>
+                  </li></ul>
                   
                   
                 </ul>
@@ -202,87 +202,139 @@
                    But summer didn't just come with its sun, of course. Along with the hot weather in the summer months, our air conditioners,
                     which cool us, started to come to mind.
                 </p>
-                <a href="singUp.php" class="btn btn-style btn-primary mt-sm-4 mt-3"
-                  >Join Us</a
-                >
+                
               </div>
             </div>
           </div>
-          <div class="maghny-gd-1 col-lg-6 mt-lg-0 mt-4">
-            <div class="row">
-              <div class="maghny-gd-1 col-6">
-                <div class="maghny-grid">
-                  <figure class="effect-lily border-radius">
-                    <img
-                      class="img-fluid"
-                      src="assets/images/room2.jpg"
-                      alt=""
-                    />
-                    <figcaption>
-                      <div>
-                        <h4>Music System <span>  Smart</span></h4>
-                        <p>High Quality Audio</p>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-              <div class="maghny-gd-1 col-6">
-                <div class="maghny-grid">
-                  <figure class="effect-lily border-radius">
-                    <img
-                      class="img-fluid"
-                      src="assets/images/room3.jpg"
-                      alt=""
-                    />
-                    <figcaption>
-                      <div>
-                        <h4>Securty Cams <span> Smart</span></h4>
-                        <p>24-hour Alarm Monitoring</p>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-              <div class="maghny-gd-1 col-6 mt-4">
-                <div class="maghny-grid">
-                  <figure class="effect-lily border-radius">
-                    <img
-                      class="img-fluid"
-                      src="assets/images/room4.jpg"
-                      alt=""
-                    />
-                    <figcaption>
-                      <div>
-                        <h4>Thermometer <span> Smart</span></h4>
-                        <p>Measure and Menage</p>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-              <div class="maghny-gd-1 col-6 mt-4">
-                <div class="maghny-grid">
-                  <figure class="effect-lily border-radius">
-                    <img
-                      class="img-fluid"
-                      src="assets/images/room5.jpg"
-                      alt=""
-                    />
-                    <figcaption>
-                      <div>
-                          <h4>Door Lock <span> Alarm</span></h4>
-                        <p>Extra Secure</p>
-                      </div>
-                    </figcaption>
-                  </figure>
-                </div>
+          
+        <div class="maghny-gd-1 col-lg-6">
+            <div class="maghny-grid">
+              <figure class="effect-lily">
+                <img class="img-fluid" src="assets/images/room5.jpg" alt="">
+                <figcaption class="w3set-hny">
+                  <div>
+                    <h4 class="top-text">
+                      Smart Air Conditioner
+                      <span>Simple to use</span>
+                    </h4>
+                    
+                  </div>
+                </figcaption>
+              </figure>
+              <div class="room-info">
+                <h3 class="room-title">
+                  <a href="room-single.html">Air Conditioner</a>
+                </h3>
+                <ul class="mb-3">
+                  <ul class="w3l-right-book mt-4">
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Keeps the Heat at Your Desired Level
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> It can detect the number of people in the environment
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Provides Energy Savings
+    
+                  </li></ul>
+                  
+                  
+                </ul>
+                <p>
+                  Now, for those who love the summer season, the taste of the weather is starting to come.
+                   But summer didn't just come with its sun, of course. Along with the hot weather in the summer months, our air conditioners,
+                    which cool us, started to come to mind.
+                </p>
+                
               </div>
             </div>
-          </div>
-        </div>
+          </div><div class="maghny-gd-1 col-lg-6">
+            <div class="maghny-grid">
+              <figure class="effect-lily">
+                <img class="img-fluid" src="assets/images/room3.jpg" alt="">
+                <figcaption class="w3set-hny">
+                  <div>
+                    <h4 class="top-text">
+                      Securty Cams
+                      <span>Smart</span>
+                    </h4>
+                    
+                  </div>
+                </figcaption>
+              </figure>
+              <div class="room-info">
+                <h3 class="room-title">
+                  <a href="room-single.html">Air Conditioner</a>
+                </h3>
+                <ul class="mb-3">
+                  <ul class="w3l-right-book mt-4">
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Keeps the Heat at Your Desired Level
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> It can detect the number of people in the environment
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Provides Energy Savings
+    
+                  </li></ul>
+                  
+                  
+                </ul>
+                <p>
+                Security is a top priority, and with our state-of-the-art Security Camera System,
+                 you can have peace of mind knowing that your premises are under constant surveillance.
+                  Whether it's for your home, office, or any other space, this camera system offers 24/7 
+                  monitoring to ensure the safety of your property and loved ones.
+                </p>
+                
+              </div>
+            </div>
+          </div><div class="maghny-gd-1 col-lg-6">
+            <div class="maghny-grid">
+              <figure class="effect-lily">
+                <img class="img-fluid" src="assets/images/room4.jpg" alt="">
+                <figcaption class="w3set-hny">
+                  <div>
+                    <h4 class="top-text">
+                      Smart Air Conditioner
+                      <span>Simple to use</span>
+                    </h4>
+                    
+                  </div>
+                </figcaption>
+              </figure>
+              <div class="room-info">
+                <h3 class="room-title">
+                  <a href="room-single.html">Air Conditioner</a>
+                </h3>
+                <ul class="mb-3">
+                  <ul class="w3l-right-book mt-4">
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Keeps the Heat at Your Desired Level
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> It can detect the number of people in the environment
+                    </li>
+                    <li>
+                      <span class="fa fa-check" aria-hidden="true"></span> Provides Energy Savings
+    
+                  </li></ul>
+                  
+                  
+                </ul>
+                <p>
+                  Now, for those who love the summer season, the taste of the weather is starting to come.
+                   But summer didn't just come with its sun, of course. Along with the hot weather in the summer months, our air conditioners,
+                    which cool us, started to come to mind.
+                </p>
+               
+              </div>
+            </div>
+          </div></div>
       </div>
     </div>
+      
 
     <section class="w3l-logos py-5">
       <div class="container py-lg-3">
@@ -375,61 +427,7 @@
       </div>
     </section>
 
-    <section class="w3l-footer-29-main w3l-copyright">
-      <div class="container">
-        <div class="row bottom-copies">
-          <p class="col-lg-8 copy-footer-29">
-          © 2023 Home Automation Systems. All rights reserved | Designed by
-            SecurHome LTD. ŞTİ.
-          </p>
-
-          <div class="col-lg-4 main-social-footer-29">
-            <a href="http://www.facebook.com" class="facebook"
-              ><span class="fa fa-facebook"></span
-            ></a>
-            <a href="http://www.twitter.com" class="twitter"
-              ><span class="fa fa-twitter"></span
-            ></a>
-            <a href="http://www.instagram.com" class="instagram"
-              ><span class="fa fa-instagram"></span
-            ></a>
-            <a href="http://www.linkedin.com" class="linkedin"
-              ><span class="fa fa-linkedin"></span
-            ></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        &#10548;
-      </button>
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction();
-        };
-
-        function scrollFunction() {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
-          }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- /move top -->
-    </section>
-
+    
     <!-- Template JavaScript -->
     <script src="assets/js/jquery-3.3.1.min.js"></script>
 

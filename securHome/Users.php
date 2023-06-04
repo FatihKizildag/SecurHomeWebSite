@@ -173,7 +173,7 @@
      
     
 
-    <section class="w3l-footer-29-main w3l-copyright">
+ 
       <div class="container">
         <div class="row bottom-copies">
           <p class="col-lg-8 copy-footer-29">
