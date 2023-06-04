@@ -284,68 +284,6 @@
       </div>
     </div>
 
-    <section class="w3l-index3">
-      <div class="midd-w3 py-5">
-        <div class="container py-lg-5 py-md-3">
-          <div class="row">
-            <div class="col-lg-6 left-wthree-img text-righ">
-              <div class="position-relative">
-                <img src="assets/images/videobg.jpg" alt="" class="img-fluid" />
-                <a
-                  href="#small-dialog"
-                  class="popup-with-zoom-anim play-view text-center position-absolute"
-                >
-                  <span class="video-play-icon">
-                    <span class="fa fa-play"></span>
-                  </span>
-                </a>
-                <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-                <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-                  <iframe
-                    src="https://www.youtube.com/watch?v=bZ3QdzVBSk8"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen=""
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 mt-lg-0 mt-5 about-right-faq align-self">
-              <h6>Discover Us</h6>
-              <h3 class="title-big">
-                10 Years of Home Automation System
-              </h3>
-              <p class="mt-3">
-                You have the opportunity to monitor your home from anywhere.
-                 Everything is now under your control. All you have to do is join the SecurHome family.
-              </p>
-              <ul class="w3l-right-book mt-4">
-                <li>
-                  <span class="fa fa-check" aria-hidden="true"></span> Provide maximum security
-                </li>
-                <li>
-                  <span class="fa fa-check" aria-hidden="true"></span> An easy-to-use interface
-                </li>
-                <li>
-                  <span class="fa fa-check" aria-hidden="true"></span>24-hour alarm monitoringv
-
-                </li>
-                <li>
-                  <span class="fa fa-check" aria-hidden="true"></span>Full cover maintenance
-
-                </li>
-                <li>
-                  <span class="fa fa-check" aria-hidden="true"></span>We follow developing new technologies
-                </li>
-              </ul>
-              <a href="about.php" class="btn btn-style btn-primary mt-4"
-                >Check all packages</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="w3l-logos py-5">
       <div class="container py-lg-3">
         <div class="row">
@@ -432,25 +370,6 @@
               </ul>
             </div>
             
-            <div
-              class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5"
-            >
-              <h6 class="footer-title-29">Contact Us</h6>
-              <p>
-                Enter your email and let mail all the details of the system. We'll
-                never share your email address.
-              </p>
-
-              <form action="#" class="subscribe" method="post">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email Address"
-                  required=""
-                />
-                <button><span class="fa fa-envelope-o"></span></button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
