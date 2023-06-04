@@ -63,9 +63,8 @@ $commentAsk->execute();
                 <a class="nav-link" href="messages.php">Messages</a>
               </li>
             </ul>
-            <a href="#" class="ml-3 book btn btn-secondary btn-style"
-              >Admin</a
-            >
+            <a href="index.php" class="ml-3 book btn btn-secondary btn-style">Log Out</a>
+            
           </div>
         </div>
       </nav>

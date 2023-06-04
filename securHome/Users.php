@@ -1,269 +1,187 @@
 <?php 
 include "./connection/connect.php";
 
-$userAsk=$db->prepare("select * from users order by id asc");
+$userAsk=$db->prepare("SELECT * FROM users ORDER BY id ASC");
 $userAsk->execute();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $userId = $_POST['user_id'];
+  
+  // Kullanıcıyı veritabanından silmek için gerekli sorguyu çalıştır
+  $deleteUser = $db->prepare("DELETE FROM users WHERE id = :user_id");
+  $deleteUser->bindParam(':user_id', $userId);
+  $deleteUser->execute();
+  
+  // Kullanıcı silindikten sonra kullanıcıları listeleyen sayfaya yönlendir
+  $response = array(
+      'status' => 'success',
+      'message' => 'User has been successfully deleted!'
+  );
+  echo json_encode($response);
+  exit;
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Secure Home | Home</title>
+  <title>Secure Home | Users</title>
 
-    <link
-      href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
+  <link href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
 
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css" />
-  </head>
-  <body>
-    
-                                                  <!--header-->
-    <header class="w3l-header-nav">
-      <!--/nav-->
-      <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
-        <div class="container">
-          <a class="navbar-brand" href="index.php">
-            <img
-              src="assets/images/lg.png"
-              alt="Your logo"
-              style="height: 35px"
-          /></a>
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style-starter.css" />
+  <style>
+    /* Stil örnekleri */
+    h1 {
+      color: #333;
+    }
+    .table-container {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .btn-delete {
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+    .btn-delete:hover {
+      color: #fff;
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+  </style>
+</head>
+<body>
+  <!--header-->
+  <header class="w3l-header-nav">
+    <!--/nav-->
+    <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
+      <div class="container">
+        <a class="navbar-brand" href="index.php">
+          <img src="assets/images/lg.png" alt="Your logo" style="height: 35px" />
+        </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item @@contact__active">
-                <a class="nav-link" href="AdminAlarms.php">Alarms</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="Users.php">Users</a>
-              </li>
-              <li class="nav-item @@contact__active">
-                <a class="nav-link" href="messages.php">Messages</a>
-              </li>
-            </ul>
-            <a href="#" class="ml-3 book btn btn-secondary btn-style"
-              >Admin</a
-            >
-          </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item @@contact__active">
+              <a class="nav-link" href="AdminAlarms.php">Alarms</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="Users.php">Users</a>
+            </li>
+            <li class="nav-item @@contact__active">
+              <a class="nav-link" href="messages.php">Messages</a>
+            </li>
+          </ul>
+          <a href="index.php" class="ml-3 book btn btn-secondary btn-style">Log Out</a>
         </div>
-      </nav>
-    </header>
-                                                  <!--header-->
-    
-    <section>
-      
-
-      <div>
-      <div class="col-12">
-                        <div class="bg-light rounded h-100 p-4">
-                            <h4 class="mb-4"><b>Responsive Table</b></h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">User ID</th>
-                                            <th scope="col">Name Surname</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php 
-                                    $counter = 1;
-                                    while ($userGet=$userAsk->fetch(PDO::FETCH_ASSOC)) {?>
-                                          <tr>
-                                            <th scope="row"><?php echo $counter; ?></th>
-                                            <td><?php echo $userGet['id'] ?></td>
-                                            <td><?php echo $userGet['name_surname'] ?></td>
-                                            <td><?php echo $userGet['mail'] ?></td>
-                                            <td><?php echo $userGet['phone'] ?></td>
-                                            <td><p style="color: yellowgreen;">Member</p></td>
-                                        </tr>
-                    
-                                        
-                                       <?php $counter++; } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
       </div>
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
-        &#10548;
-      </button>
-    </section>
+    </nav>
+  </header>
+  <!--header-->
 
-      <script>
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-          scrollFunction();
-        };
+  <section>
+    <div class="container py-5">
+      <h1 class="mb-4">Users</h1>
+      <div class="table-container">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">User ID</th>
+                <th scope="col">Name Surname</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $counter = 1;
+              while ($userGet = $userAsk->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <tr>
+                  <th scope="row"><?php echo $counter; ?></th>
+                  <td><?php echo $userGet['id'] ?></td>
+                  <td><?php echo $userGet['name_surname'] ?></td>
+                  <td><?php echo $userGet['mail'] ?></td>
+                  <td><?php echo $userGet['phone'] ?></td>
+                  <td>
+                    <button class="btn btn-danger btn-sm btn-delete" onclick="deleteUser(<?php echo $userGet['id']; ?>)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+                <?php $counter++;
+              } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function scrollFunction() {
-          if (
-            document.body.scrollTop > 20 ||
-            document.documentElement.scrollTop > 20
-          ) {
-            document.getElementById("movetop").style.display = "block";
-          } else {
-            document.getElementById("movetop").style.display = "none";
-          }
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    // Kullanıcıyı silmek için AJAX isteği gönderen fonksiyon
+    function deleteUser(userId) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Are you sure you want to delete this user?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'I am sure!',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // AJAX isteği gönder
+          $.ajax({
+            url: 'users.php',
+            type: 'POST',
+            data: { user_id: userId },
+            dataType: 'json',
+            success: function (response) {
+              if (response.status === 'success') {
+                Swal.fire({
+                  title: 'Succesful',
+                  text: response.message,
+                  icon: 'success'
+                }).then(() => {
+                  // Kullanıcılar sayfasını yeniden yükle
+                  location.reload();
+                });
+              }
+            },
+            error: function () {
+              Swal.fire({
+                title: 'Error',
+                text: 'An error occurred, please try again.',
+                icon: 'error'
+              });
+            }
+          });
         }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
-      </script>
-      <!-- /move top -->
-    </section>
-
-    <!-- Template JavaScript -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-
-    <script src="assets/js/owl.carousel.js"></script>
-    <!-- script for banner slider-->
-    <script>
-      $(document).ready(function () {
-        $(".owl-one").owlCarousel({
-          loop: true,
-          margin: 0,
-          nav: false,
-          responsiveClass: true,
-          autoplay: false,
-          autoplayTimeout: 5000,
-          autoplaySpeed: 1000,
-          autoplayHoverPause: false,
-          responsive: {
-            0: {
-              items: 1,
-              nav: false,
-            },
-            480: {
-              items: 1,
-              nav: false,
-            },
-            667: {
-              items: 1,
-              nav: true,
-            },
-            1000: {
-              items: 1,
-              nav: true,
-            },
-          },
-        });
       });
-    </script>
-    <!-- //script -->
+    }
+  </script>
 
-    <!-- script for owlcarousel -->
-    <script>
-      $(document).ready(function () {
-        $(".owl-testimonial").owlCarousel({
-          loop: true,
-          margin: 0,
-          nav: true,
-          responsiveClass: true,
-          autoplay: false,
-          autoplayTimeout: 5000,
-          autoplaySpeed: 1000,
-          autoplayHoverPause: false,
-          responsive: {
-            0: {
-              items: 1,
-              nav: false,
-            },
-            480: {
-              items: 1,
-              nav: false,
-            },
-            667: {
-              items: 1,
-              nav: true,
-            },
-            1000: {
-              items: 1,
-              nav: true,
-            },
-          },
-        });
-      });
-    </script>
-    <!-- //script for owlcarousel -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".popup-with-zoom-anim").magnificPopup({
-          type: "inline",
-
-          fixedContentPos: false,
-          fixedBgPos: true,
-
-          overflowY: "auto",
-
-          closeBtnInside: true,
-          preloader: false,
-
-          midClick: true,
-          removalDelay: 300,
-          mainClass: "my-mfp-zoom-in",
-        });
-
-        $(".popup-with-move-anim").magnificPopup({
-          type: "inline",
-
-          fixedContentPos: false,
-          fixedBgPos: true,
-
-          overflowY: "auto",
-
-          closeBtnInside: true,
-          preloader: false,
-
-          midClick: true,
-          removalDelay: 300,
-          mainClass: "my-mfp-slide-bottom",
-        });
-      });
-    </script>
-
-    <!-- disable body scroll which navbar is in active -->
-    <script>
-      $(function () {
-        $(".navbar-toggler").click(function () {
-          $("body").toggleClass("noscroll");
-        });
-      });
-    </script>
-    <!-- disable body scroll which navbar is in active -->
-
-    <script src="assets/js/bootstrap.min.js"></script>
-  </body>
+  <!-- Template JavaScript -->
+  <script src="assets/js/bootstrap.min.js"></script>
+</body>
 </html>
