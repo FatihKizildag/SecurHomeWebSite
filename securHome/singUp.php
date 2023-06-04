@@ -1,4 +1,5 @@
 <?php
+
 // Database connection information
 $servername = "localhost"; // Database server name
 $username = "root"; // Database user name
@@ -27,9 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->store_result();
         
+        if ($_POST["password"] !== $_POST["confirm_password"]) {
+          echo "Passwords do not match.";
+          exit; // Hata mesajını gösterdikten sonra işlemi sonlandır
+      }
         // If there is a user registered with the same phone number, show an error message
         if ($stmt->num_rows > 0) {
-            echo "There is a previously registered user with this phone number.";
+            echo '<script>alert("There is a previously registered user with this phone number.");</script>';
         } else {
             // If there is no registered user with the same phone number October, add the new user to the database
             $stmt = $conn->prepare("INSERT INTO users (name_surname, mail, password, phone) VALUES (?, ? , ? , ?)");
@@ -37,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Running a SQL query
             if ($stmt->execute() === TRUE) {
-                echo "The user was added successfully.";
+               echo '<script>alert("The user was added successfully.");</script>';
             } else {
                 echo "Error: " . $stmt->error;
             }
@@ -45,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
         }
     } else {
-        echo "Sending incorrect or incomplete data.";
+        echo '<script>alert("Sending incorrect or incomplete data.");</script>';
     }
 }
 // Close the database connection
@@ -118,49 +123,64 @@ $conn->close();
         </div>
       </nav>
     </header>
-    <form action="singUp.php" method="post">
-        <div class="form-group row">
-            <label for="mail" class="col-sm-2 col-form-label"
-              >Full name</label
-            >
-            <div class="col-sm-10">
-              <input
-                type="text" class="form-control" name="name_surname" placeholder="Full name"
-              />
-            </div>
+
+    <div class="card card-info">
+          <div class="card-header">
+            <h3 class="card-title">Sing Up</h3>
+          </div> 
+        <form class="form-horizontal" action="singUp.php" method="post">
+          <div class="card-body">
+            <div class="form-group row">
+              <label for="name_surname" class="col-sm-2 col-form-label"
+                >Full name</label>
+                <div class="col-sm-10">
+                  <input
+                    type="text" 
+                    class="form-control" 
+                    name="name_surname" 
+                    placeholder="Full name"
+                  />
+                </div>
           </div>
 
-        <div class="form-group row">
+          <div class="form-group row">
             <label for="mail" class="col-sm-2 col-form-label"
               >Email</label
             >
             <div class="col-sm-10">
               <input
-                type="email" class="form-control" name="mail" placeholder="Email"
+                type="email"
+                class="form-control"
+                name="mail"
+                placeholder="Email"
+                required
               />
-            </div>
-          </div>
-
-        <div class="form-group row">
-            <label for="password" class="col-sm-2 col-form-label"
-              >Password</label
-            >
-            <div class="col-sm-10">
-              <input
-                type="password" class="form-control" name="password" placeholder="Password"
-              />
-              
             </div>
           </div>
 
           <div class="form-group row">
             <label for="password" class="col-sm-2 col-form-label"
-              >Retype password</label
+              >Password</label
             >
             <div class="col-sm-10">
-            <input type="password" class="form-control" placeholder="Retype password">
-              
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                placeholder="Password"
+              />
             </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="password" class="col-sm-2 col-form-label"
+              >Retype password</label>
+              <div class="col-sm-10">
+                  <input type="password" 
+                  class="form-control" 
+                  name="confirm_password"
+                  placeholder="Retype password"/>
+              </div>
           </div>
 
           <div class="form-group row">
@@ -168,28 +188,33 @@ $conn->close();
               >Phone</label
             >
             <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Phone" required>
+            <input type="text" 
+            class="form-control" 
+            placeholder="Phone" 
+            name="phone"
+            required/>
               
             </div>
           </div>
-        
 
-        <div class="row">
-          <div class="col-8">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="terms" class="custom-control-input" id="agreeTerms" required>
-                      <label class="custom-control-label" for="agreeTerms" >I agree to the <a href="#">terms</a></label>
-                    </div>
-            
-            <a href="signIn.php" class="text-left" >I already have a membership</a>
+          <div class="form-group mb-0">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="terms" class="custom-control-input" id="agreeTerms" required>
+                        <label class="custom-control-label" for="agreeTerms" >I agree to the <a href="#">terms</a></label>
+                      </div>
+                      
+                      <a href="signIn.php" class="text-left" >I already have a membership</a>
           </div>
-        
-          <div class="social-auth-links text-center">
-            <button type="submit" class="btn btn-block btn-secondary">Register</button>
-          
-        </div>
-      </form>
 
+          <div class="social-auth-links text-center">
+            <button type="submit" class="btn btn-secondary">Register</button>
+          </div>
+
+          
+          
+        </form>
+      </div>
       
     
-</body>
+  </body>
+</html>
