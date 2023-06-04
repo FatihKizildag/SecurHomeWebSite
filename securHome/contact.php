@@ -125,23 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="map-content-9 mt-lg-0 mt-4">
-                    <form action="mail.php" method="post"><!-- mail.php to be produced-->
-                        <div class="twice-two">
-                            <input type="text" class="form-control" name="userName" id="userName" placeholder="Name"
-                                required="">
-                            <input type="email" class="form-control" name="sender" id="sender" placeholder="Email"
-                                required="">
-                        </div>
-                        <div class="twice">
-                            <input type="text" class="form-control" name="subject" id="subject"
-                                placeholder="Subject" required="">
-                        </div>
-                        <textarea name="message" class="form-control" id="message" placeholder="Message"
-                            required=""></textarea>
-                        <button type="submit" class="btn btn-contact">Send Message</button>
-                    </form>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -232,25 +216,6 @@
               </ul>
             </div>
             
-            <div
-              class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5"
-            >
-              <h6 class="footer-title-29">Contact Us</h6>
-              <p>
-                Enter your email and let mail all the details of the system. We'll
-                never share your email address.
-              </p>
-
-              <form action="#" class="subscribe" method="post">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email Address"
-                  required=""
-                />
-                <button><span class="fa fa-envelope-o"></span></button>
-              </form>
-            </div>
           </div>
         </div>
       </div>

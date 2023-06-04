@@ -190,8 +190,8 @@
 					</div>
 				</div>
 				<div class="social-icons-section text-center">
-					<a class="fac" href="#url">
-						<i class="fa fa-facebook"></i>
+					<a class="instagram" href="#url">
+						<i class="fa fa-instagram"></i>
 					</a>
 					<a class="twitter" href="#url">
 						<i class="fa fa-twitter"></i>
@@ -212,8 +212,8 @@
 					</div>
 				</div>
 				<div class="social-icons-section text-center">
-					<a class="fac" href="#url">
-						<i class="fa fa-facebook"></i>
+					<a class="instagram" href="#url">
+						<i class="fa fa-instagram"></i>
 					</a>
 					<a class="twitter" href="#url">
 						<i class="fa fa-twitter"></i>
@@ -226,75 +226,7 @@
 </section>
 <!-- team -->
 
-<section class="w3l-stats">
-    <div class="main-w3 py-5">
-        <div class="container py-lg-3">
-            <div class="row align-items-center">
-                <div class="col-lg-6 title">
-                    <h3 class="title-big">Why Choose SecureHome</h3>
 
-                    <p class="mt-4">
-                      <ul class="w3l-right-book mt-4">
-                          <li>
-                            <span class="fa fa-check-circle" aria-hidden="true"></span> 
-                            Direct to Market
-                          </li>
-                          <li>
-                            <span class="fa fa-check-circle" aria-hidden="true"></span> 
-                            High Customization and Compatibility
-                          </li>
-                          <li>
-                            <span class="fa fa-check-circle" aria-hidden="true"></span> 
-                            A Professional and Experienced Team
-                          </li>
-                          <li>
-                            <span class="fa fa-check-circle" aria-hidden="true"></span> Double
-                            Strong R&D Capability
-                          </li>
-                        </ul>    
-                    
-                        <a href="#check" class="btn btn-style btn-primary mt-4"
-                          >Check all packages</a
-                        >
-                    </p>
-                </div>
-                <div class="col-lg-6 main-cont-wthree-fea text-center">
-                    <div class="row">
-                        <div class="col-6 pr-2 mt-4">
-                            <div class="grids-speci1">
-                                <span class="fa fa-users"></span>
-                                <h3 class="title-spe">1200+</h3>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                        <div class="col-6 pl-2 mt-4">
-                            <div class="grids-speci1">
-                                <span class="fa fa-warning"></span>
-                                <h3 class="title-spe">18k KWs+</h3>
-                                <p>Energy Saving</p>
-                            </div>
-                        </div>
-                        <div class="col-6 pr-2 mt-4">
-                            <div class="grids-speci1">
-                                <span class="fa fa-briefcase"></span>
-                                <h3 class="title-spe">158</h3>
-                                <p>Employers</p>
-                            </div>
-                        </div>
-                        <div class="col-6 pl-2 mt-4">
-                            <div class="grids-speci1">
-                                <span class="fa fa-comments"></span>
-                                <h3 class="title-spe">879+</h3>
-                                <p>Services</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 <section class="w3l-testimonials">
     
@@ -383,25 +315,7 @@
               </ul>
             </div>
             
-            <div
-              class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5"
-            >
-              <h6 class="footer-title-29">Contact Us</h6>
-              <p>
-                Enter your email and let mail all the details of the system. We'll
-                never share your email address.
-              </p>
-
-              <form action="#" class="subscribe" method="post">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email Address"
-                  required=""
-                />
-                <button><span class="fa fa-envelope-o"></span></button>
-              </form>
-            </div>
+          
           </div>
         </div>
       </div>
