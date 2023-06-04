@@ -34,3 +34,7 @@ Once your contributions are approved, your changes will be integrated into the m
 
 Contact
 For any questions, suggestions, or feedback, please contact us at "kizildagfatihh@gmail.com".
+
+For any questions, suggestions, or feedback, please contact us at "kizildagfatihh@gmail.com".
+
+
