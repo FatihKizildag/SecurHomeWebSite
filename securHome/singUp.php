@@ -173,7 +173,7 @@ $conn->close();
               <input
                 type="password"
                 class="form-control"
-                name="password"
+                name="user_password"
                 placeholder="Password"
               />
             </div>

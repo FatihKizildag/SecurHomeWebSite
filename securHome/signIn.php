@@ -15,11 +15,11 @@ if ($conn->connect_error) {
 // Check the user login form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = $_POST["mail"];
-    $user_password = $_POST["password"]; // We have assigned the password in the user login here
+    $user_password = $_POST["user_password"]; // We have assigned the password in the user login here
     $remember_me = isset($_POST["remember_me"]) ? true : false;
 
     // Check the username and password in the database
-    $sql = "SELECT * FROM users WHERE mail = '$mail' AND password ='$user_password'"; // SQL query
+    $sql = "SELECT * FROM users WHERE mail = '$mail' AND user_password ='$user_password'"; // SQL query
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input
                 type="password"
                 class="form-control"
-                name="password"
+                name="user_password"
                 placeholder="Password"
               />
             </div>
