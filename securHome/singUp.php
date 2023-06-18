@@ -15,20 +15,20 @@ if ($conn->connect_error) {
 }
 
 // Initialize variables
-$name_surname = $mail = $password = $confirm_password = $phone = "";
+$name_surname = $mail = $user_password = $confirm_password = $phone = "";
 
 // Get the posted data from the HTML form when the Register button is clicked
 if (isset($_POST["register"])) {
     $name_surname = filter_var($_POST["name_surname"], FILTER_SANITIZE_STRING);
     $mail = filter_var($_POST["mail"], FILTER_SANITIZE_EMAIL);
-    $password = $_POST["password"];
+    $user_password = $_POST["user_password"];
     $confirm_password = $_POST["confirm_password"];
     $phone = filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT);
 
     // Validate the input data
-    if (empty($name_surname) || empty($mail) || empty($password) || empty($confirm_password) || empty($phone)) {
+    if (empty($name_surname) || empty($mail) || empty($user_password) || empty($confirm_password) || empty($phone)) {
         echo '<script>alert("Please fill in all the fields.");</script>';
-    } elseif ($password !== $confirm_password) {
+    } elseif ($user_password != $confirm_password) {
         echo '<script>alert("Passwords do not match.");</script>';
     } else {
         // Check whether the user with the same phone number exists in the database using the prepared statement
@@ -42,8 +42,8 @@ if (isset($_POST["register"])) {
             echo '<script>alert("There is a previously registered user with this phone number.");</script>';
         } else {
             // If there is no registered user with the same phone number, add the new user to the database
-            $stmt = $conn->prepare("INSERT INTO users (name_surname, mail, password, phone) VALUES (?, ? , ? , ?)");
-            $stmt->bind_param("ssss", $name_surname, $mail, $password, $phone);
+            $stmt = $conn->prepare("INSERT INTO users (name_surname, mail, user_password, phone) VALUES (?, ? , ? , ?)");
+            $stmt->bind_param("ssss", $name_surname, $mail, $user_password, $phone);
 
             // Running a SQL query
             if ($stmt->execute() === TRUE) {
@@ -60,6 +60,7 @@ if (isset($_POST["register"])) {
 // Close the database connection
 $conn->close();
 ?>
+
 
 
 

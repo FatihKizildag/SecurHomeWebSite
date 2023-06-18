@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 18 Haz 2023, 13:29:18
--- Sunucu sürümü: 10.4.28-MariaDB
--- PHP Sürümü: 8.2.4
+-- Üretim Zamanı: 18 Haz 2023, 13:58:26
+-- Sunucu sürümü: 10.4.25-MariaDB
+-- PHP Sürümü: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,24 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `aircon`
+-- Tablo için tablo yapısı `airconditioning`
 --
 
-CREATE TABLE `aircon` (
+CREATE TABLE `airconditioning` (
   `id` int(11) NOT NULL,
-  `baslik` char(50) NOT NULL,
-  `aktif` char(1) NOT NULL,
-  `modes` varchar(11) NOT NULL
+  `baslik` char(50) COLLATE utf8_turkish_ci NOT NULL,
+  `aktif` char(1) COLLATE utf8_turkish_ci NOT NULL,
+  `modes` varchar(11) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `aircon`
---
-
-INSERT INTO `aircon` (`id`, `baslik`, `aktif`, `modes`) VALUES
-(1, 'ON', '1', 'OFF'),
-(2, 'HOT', '1', 'COLD'),
-(3, 'SLOW', '0', 'TURBO');
 
 -- --------------------------------------------------------
 
@@ -54,7 +45,7 @@ CREATE TABLE `alarms` (
   `User Name` text NOT NULL,
   `Error` text NOT NULL,
   `Status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -66,7 +57,7 @@ CREATE TABLE `comment` (
   `name` text NOT NULL,
   `email` text NOT NULL,
   `message` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `comment`
@@ -78,8 +69,7 @@ INSERT INTO `comment` (`name`, `email`, `message`) VALUES
 ('Ali', 'ali@gmail.com', 'That web page need to be more spesific :('),
 ('Kevin', 'kevin@gmail.com', 'I will never forget my door open anymore'),
 ('uras', 'uras@gmail.com', 'testing'),
-('asd', 'asdasd@asd', 'test iyi olmuş'),
-('can', 'can@gmail.com', 'ca');
+('asd', 'asdasd@asd', 'test iyi olmuş');
 
 -- --------------------------------------------------------
 
@@ -89,8 +79,8 @@ INSERT INTO `comment` (`name`, `email`, `message`) VALUES
 
 CREATE TABLE `doors` (
   `id` int(11) NOT NULL,
-  `baslik` char(50) NOT NULL,
-  `aktif` char(1) NOT NULL
+  `baslik` char(50) COLLATE utf8_turkish_ci NOT NULL,
+  `aktif` char(1) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
@@ -98,7 +88,7 @@ CREATE TABLE `doors` (
 --
 
 INSERT INTO `doors` (`id`, `baslik`, `aktif`) VALUES
-(1, 'Bedroom', '0'),
+(1, 'Bedroom', '1'),
 (2, 'Balcony', '1'),
 (3, 'Garage', '1'),
 (4, 'Gate', '0'),
@@ -112,8 +102,8 @@ INSERT INTO `doors` (`id`, `baslik`, `aktif`) VALUES
 
 CREATE TABLE `lights` (
   `id` int(11) NOT NULL,
-  `baslik` char(50) NOT NULL,
-  `aktif` char(1) NOT NULL
+  `baslik` char(50) COLLATE utf8_turkish_ci NOT NULL,
+  `aktif` char(1) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
@@ -139,7 +129,7 @@ CREATE TABLE `users` (
   `mail` varchar(1000) NOT NULL,
   `password` text NOT NULL,
   `phone` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `users`
@@ -154,12 +144,6 @@ INSERT INTO `users` (`id`, `name_surname`, `mail`, `password`, `phone`) VALUES
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
-
---
--- Tablo için indeksler `aircon`
---
-ALTER TABLE `aircon`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Tablo için indeksler `alarms`
@@ -188,12 +172,6 @@ ALTER TABLE `users`
 --
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
-
---
--- Tablo için AUTO_INCREMENT değeri `aircon`
---
-ALTER TABLE `aircon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `alarms`
