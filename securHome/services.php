@@ -164,7 +164,7 @@
                                                         include("connection/vt.php"); //veri tabanına bağlanıyoruz
 
                                                         //verileri çekiyoruz
-                                                        $sorgu = $baglanti->query("select * from aircon");
+                                                        $sorgu = $baglanti->query("select * from airconditioning");
 
                                                         //verileri yazıyoruz
                                                         while ($sonuc = $sorgu->fetch_assoc()) {?>
