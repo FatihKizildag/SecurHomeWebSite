@@ -118,7 +118,7 @@
                 
                                                                 <td>
                                                                     <label class="switch">
-                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':''?>  />
+                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
                                                                         <span class="slider round"></span>
                                                                     </label>
                                                                 </td>
@@ -164,7 +164,7 @@
                                                         include("connection/vt.php"); //veri tabanına bağlanıyoruz
 
                                                         //verileri çekiyoruz
-                                                        $sorgu = $baglanti->query("select * from aircon");
+                                                        $sorgu = $baglanti->query("select * from AirConditioning");
 
                                                         //verileri yazıyoruz
                                                         while ($sonuc = $sorgu->fetch_assoc()) {?>
@@ -185,12 +185,7 @@
                                                 
                                                 </tbody>
                                             
-                                            </table>
-
-                                        
-                                     
-                                    
-                                    
+                                            </table>   
                               </div>
                             </div>
                         </div>
@@ -342,7 +337,7 @@
 
 </form>
 <!-- js dosyamızı sona ekliyoruz -->
-<script src="assets/js/custom.js"></script>
+
 
 
 <script>
@@ -446,6 +441,7 @@ $(document).ready(function () {
 
 <!-- Template JavaScript -->
 <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
 
 <script src="assets/js/owl.carousel.js"></script>
 <!-- script for banner slider-->
