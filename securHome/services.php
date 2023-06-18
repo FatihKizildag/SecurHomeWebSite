@@ -118,7 +118,7 @@
                 
                                                                 <td>
                                                                     <label class="switch">
-                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':''?>  />
                                                                         <span class="slider round"></span>
                                                                     </label>
                                                                 </td>

@@ -11,9 +11,4 @@ if ($_POST) { //post var mı diye bakıyoruz
 
    
 }
-
-
-
-
-
 ?>
