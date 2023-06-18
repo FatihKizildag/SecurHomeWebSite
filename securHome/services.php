@@ -1,92 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <style>
-      
-      
-      
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-      }
-      
-      .switch input { 
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-      
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-      
-      input:checked + .slider {
-        background-color: #2196F3;
-      }
-      
-      input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-      }
-      
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-      
-      /* Rounded sliders */
-      .slider.round {
-        border-radius: 34px;
-      }
-      
-      .slider.round:before {
-        border-radius: 50%;
-      }
-    </style>
-
-    <title>Secure Home | Services</title>
-
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
     <link
       href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
-
-    <!-- Template CSS -->
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <title>Secure Home | Services</title>
+    <link href="assets/css/switch.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/style-starter.css" />
-  </head>
-  <body>
-    <!--w3l-header-->
+</head>
 
-    <header class="w3l-header-nav">
+<body>
+<header class="w3l-header-nav">
       <!--/nav-->
       <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-3">
         <div class="container">
@@ -132,151 +65,201 @@
       </nav>
       <!--//nav-->
     </header>
-  <section class="w3l-breadcrumb">
-    <div class="breadcrum-bg py-sm-5 py-4">
-        <div class="container py-lg-3">
+
+    <section class="w3l-breadcrumb">
+        <div class="breadcrum-bg py-sm-5 py-4">
+            <div class="container py-lg-3">
 
             <h2>Our Services</h2>
             <p><a href="index.php">Home</a> &nbsp; / &nbsp; Services</p>
 
+            </div>
         </div>
-    </div>
-  </section>
-  <!--  services section -->
-  <section class="w3l-servicesblock1" id="service">
-    <div class="features-with-17_sur py-5">
-        <div class="container py-lg-5 py-sm-4">
-            <div class="features-with-17-top_sur">
-                <div class="row">
-                    
-                  <div style="margin-bottom: 20px;" class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                        <div class="features-with-17-right-tp_sur">
-                            <div class="features-with-17-left1">
-                                <span class="fa fa-lock" aria-hidden="true"></span>
-                            </div>
-                            <div class="features-with-17-left2">
-                                <h5>Doors Locks</h5>
-                                <div style="margin: 0px auto;width: 337px; ">
-                                
-                                  <div style="float:left;margin:10px;">
-                                    <p>Garden</p>
-                                  <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                  </label>
-                                  </div>
-                                  <div style="float:left;margin: 10px;">
-                                    <p>Bedroom</p>
-                                  <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                  </label>
-                                  </div>
-                                  <div style="float:left;margin: 10px;">
-                                    <p>Garage</p>
-                                  <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                  </label>
-                                  </div>
-                                  <div style="float:left;margin: 10px;">
-                                    <p>Gate</p>
-                                  <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                  </label>
-                                  </div>
-                                  <div style="float:left;margin: 10px;">
-                                    <p>Back Yard</p>
-                                  <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider"></span>
-                                  </label>
-                                  </div>
-                                </div> 
-                            </div>
-                        </div>
-                  </div>
+    </section>
 
-                  <div class="col-lg-4 col-md-6 mt-lg-0 mt-sm-5 mt-4">
-                        <div class="features-with-17-right-tp_sur">
-                            <div class="features-with-17-left1">
-                                <span class="fa fa-thermometer" aria-hidden="true"></span>
-                            </div>
-                            <div class="features-with-17-left2">
-                                <h5>Air Conditioning </h5>
-                                <h6 style="text-align: center;margin-bottom: 10px;"><input type="number" id="number" value="35"/> &#8451</h6>
-                                <label class="switch">
-                                  <input type="checkbox" checked>
-                                  <span class="slider round"></span>
-                                </label>
-                                <label style="margin-left: 55px;">
-                                  <div  class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><span class="fa fa-minus" aria-hidden="true"></span></div>
-                                  <div  class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><span class="fa fa-plus" aria-hidden="true"></span></div>
-                                </label>
-                              
-                                
-                                
+    <section  class="w3l-servicesblock1" id="service" >
+        <div class="features-with-17_sur py-5">
+            <div class="container py-lg-5 py-sm-4" >
+                <div class="features-with-17-top_sur">
+                    <div class="row">
+                        
+                        <div style="margin-bottom: 20px;" class="col-lg-4 col-md-6 mt-md-0 mt-4">
+
+                            <div class="features-with-17-right-tp_sur">
+                                <div class="features-with-17-left1">
+                                    <span class="fa fa-lock" aria-hidden="true"></span>
+                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                                </div>
+                        
+
+                                <div class="features-with-17-left2">
+                                    <h5>Doors Locks</h5>
+                                    <div style="margin: 0px auto;width: 337px; ">
+
+                                        <div class="col-md-4">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Door ID</th>
+                                                        <th>Type</th>
+                                                        <th>Situation</th>
+                                                    </tr>
+                                                    <?php
+                                                        include("connection/vt.php"); //veri tabanına bağlanıyoruz
+
+                                                        //verileri çekiyoruz
+                                                        $sorgu = $baglanti->query("select * from doors");
+
+                                                        //verileri yazıyoruz
+                                                        while ($sonuc = $sorgu->fetch_assoc()) {?>
+                                                            <tr>
+                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['baslik'] ?></td>
+                
+                                                                <td>
+                                                                    <label class="switch">
+                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <span class="slider round"></span>
+                                                                    </label>
+                                                                </td>
+
+                                                            </tr>
+                                                    <?php } ?>
+                                                
+                                                </tbody>
+                                            
+                                            </table>
+                                    
+                                        </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-                  </div>
 
-                  <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                      <div class="features-with-17-right-tp_sur">
-                          <div class="features-with-17-left1">
-                              <span class="fa fa-lightbulb-o  " aria-hidden="true"></span>
-                          </div>
-                          <div class="features-with-17-left2">
-                              <h5>Lights</h5>
-                              <div style="margin: 0px auto;width: 337px; ">
-                              
-                                <div style="float:left;margin:10px;">
-                                  <p>Bedroom</p>
-                                  <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                  </label>
+                        <div class="col-lg-4 col-md-6 mt-lg-0 mt-sm-5 mt-4">
+                            <div class="features-with-17-right-tp_sur">
+                                <div class="features-with-17-left1">
+                                    <span class="fa fa-thermometer" aria-hidden="true"></span>
+                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
                                 </div>
-                                <div style="float:left;margin: 10px;">
-                                  <p>Kitchen</p>
-                                  <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                  </label>
-                                </div>
-                                <div style="float:left;margin: 10px;">
-                                  <p>Balcony</p>
-                                  <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                  </label>
-                                </div>
-                                <div style="float:left;margin: 10px;">
-                                  <p>Roof</p>
-                                  <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                  </label>
-                                </div>
-                                <div style="float:left;margin: 10px;">
-                                  <p>Corridor </p>
-                                  <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                  </label>
-                                </div>
-                              </div> 
-                          </div>
-                      </div>
-                  </div>
+                                <div class="features-with-17-left2">
+                                    <h5>Air Conditioning </h5>
+                                    
+                                    
+                                    <h6 style="text-align: center;margin-bottom: 10px;"><input type="number" id="number" value="35"/> &#8451</h6>
+                                    <label style="margin-left: 130px;">
+                                        <div  class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><span class="fa fa-minus" aria-hidden="true"></span></div>
+                                        <div  class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><span class="fa fa-plus" aria-hidden="true"></span></div>
+                                     </label>
+
+                                     <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th>Mod ID</th>
+                                                        <th>Mod</th>
+                                                        <th>Action</th>
+                                                        <th>Mod</th>
+                                                    </tr>
+                                                    <?php
+                                                        include("connection/vt.php"); //veri tabanına bağlanıyoruz
+
+                                                        //verileri çekiyoruz
+                                                        $sorgu = $baglanti->query("select * from aircon");
+
+                                                        //verileri yazıyoruz
+                                                        while ($sonuc = $sorgu->fetch_assoc()) {?>
+                                                            <tr>
+                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['baslik'] ?></td>
+                
+                                                                <td>
+                                                                    <label class="switch">
+                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasifsss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <span class="slider"></span>
+                                                                    </label>
+                                                                </td>
+                                                                <td><?php echo $sonuc['modes'] ?></td>
+
+                                                            </tr>
+                                                    <?php } ?>
+                                                
+                                                </tbody>
+                                            
+                                            </table>
+
+                                        
+                                     
+                                    
+                                    
+                              </div>
+                            </div>
+                        </div>
 
 
 
 
-                  <div style="margin-bottom: 20px;" class="col-lg-4 col-md-6 mt-md-0 mt-4">
+
+
+
+                        <div style="margin-bottom: 20px;" class="col-lg-4 col-md-6 mt-md-0 mt-4">
+
+                            <div class="features-with-17-right-tp_sur">
+                                <div class="features-with-17-left1">
+                                    <span class="fa fa-lightbulb-o" aria-hidden="true"></span>
+                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                                </div>
+                        
+
+                                <div class="features-with-17-left2">
+                                    <h5>Lights</h5>
+                                    <div style="margin: 0px auto;width: 337px; ">
+
+                                        <div class="col-md-4">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Lights ID</th>
+                                                        <th>Type</th>
+                                                        <th>Situation</th>
+                                                    </tr>
+                                                    <?php
+                                                        include("connection/vt.php"); //veri tabanına bağlanıyoruz
+
+                                                        //verileri çekiyoruz
+                                                        $sorgu = $baglanti->query("select * from lights");
+
+                                                        //verileri yazıyoruz
+                                                        while ($sonuc = $sorgu->fetch_assoc()) {?>
+                                                            <tr>
+                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['baslik'] ?></td>
+                
+                                                                <td>
+                                                                    <label class="switch">
+                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasifss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <span class="slider round"></span>
+                                                                    </label>
+                                                                </td>
+
+                                                            </tr>
+                                                    <?php } ?>
+                                                
+                                                </tbody>
+                                            
+                                            </table>
+                                    
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                        <div style="margin-bottom: 20px;" class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="features-with-17-right-tp_sur">
                         <div class="features-with-17-left1">
                             <span class="fa fa-television" aria-hidden="true"></span>
+                            <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
                         </div>
                         <div class="features-with-17-left2">
                             <h5>Cameras</h5>
@@ -308,10 +291,12 @@
                         </div>
                   </div>
 
+
                   <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="features-with-17-right-tp_sur">
                         <div class="features-with-17-left1">
                             <span class="fa fa-music  " aria-hidden="true"></span>
+                            <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
                         </div>
                         <div class="features-with-17-left2">
                             <h5>Music Box</h5>
@@ -348,150 +333,92 @@
                             </div> 
                         </div>
                     </div>
-                </div>  
+                    </div>
                 </div>
             </div>
         </div>
-            
-    </div>
-  </section>
 
-
-<section class="w3l-logos py-5">
-      <div class="container py-lg-3">
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view">
-            <img
-              src="assets/images/logo1.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view">
-            <img
-              src="assets/images/logo2.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-sm-0 mt-4">
-            <img
-              src="assets/images/logo3.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-md-0 mt-4">
-            <img
-              src="assets/images/logo4.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-lg-0 mt-4">
-            <img
-              src="assets/images/logo2.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-lg-2 col-md-3 col-sm-4 col-6 logo-view mt-lg-0 mt-4">
-            <img
-              src="assets/images/logo1.jpg"
-              alt="company-logo"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="w3l-footer-29-main">
-      <div class="footer-29 py-5">
-        <div class="container py-lg-4">
-          <div class="row footer-top-29">
-            <div class="col-lg-3 col-md-6 col-sm-8 footer-list-29 footer-1">
-              <h6 class="footer-title-29">Contact Us</h6>
-              <ul>
-                <li>
-                  <p>
-                    <span class="fa fa-map-marker"></span> Akdeniz Ünivercity Antalya Teknokent
-                  </p>
-                </li>
-                <li>
-                  <a href="tel:+905555555555"
-                    ><span class="fa fa-phone"></span> +905555555555</a
-                  >
-                </li>
-                <li>
-                  <a href="mailto:securhome@gmail.com" class="mail"
-                    ><span class="fa fa-envelope-open-o"></span>
-                    securhome@gmail.com</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div
-              class="col-lg-2 col-md-6 col-sm-4 footer-list-29 footer-2 mt-sm-0 mt-5"
-            >
-              <ul>
-                <h6 class="footer-title-29">Useful Links</h6>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About System</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-              </ul>
-            </div>
-            
-            <div
-              class="col-lg-4 col-md-6 col-sm-7 footer-list-29 footer-4 mt-lg-0 mt-5"
-            >
-              <h6 class="footer-title-29">Contact Us</h6>
-              <p>
-                Enter your email and let mail all the details of the system. We'll
-                never share your email address.
-              </p>
-
-              <form action="#" class="subscribe" method="post">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email Address"
-                  required=""
-                />
-                <button><span class="fa fa-envelope-o"></span></button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
-   
-      <div class="container">
-        <div class="row bottom-copies">
-          <p class="col-lg-8 copy-footer-29">
-            © 2023 Home Automation Systems. All rights reserved | Designed by
-            SecurHome LTD. ŞTİ.
-          </p>
+</form>
+<!-- js dosyamızı sona ekliyoruz -->
+<script src="assets/js/custom.js"></script>
 
-          <div class="col-lg-4 main-social-footer-29">
-            <a href="#facebook" class="facebook"
-              ><span class="fa fa-facebook"></span
-            ></a>
-            <a href="#twitter" class="twitter"
-              ><span class="fa fa-twitter"></span
-            ></a>
-            <a href="#instagram" class="instagram"
-              ><span class="fa fa-instagram"></span
-            ></a>
-            <a href="#linkedin" class="linkedin"
-              ><span class="fa fa-linkedin"></span
-            ></a>
-          </div>
-        </div>
-      </div>
 
-      <!-- move top -->
-      <button onclick="topFunction()" id="movetop" title="Go to top">
+<script>
+$(document).ready(function () {
+    $('.aktifPasif').click(function (event) {
+        var id = $(this).attr("id");  //id değerini alıyoruz
+
+        var durum = ($(this).is(':checked')) ? '1' : '0';
+        //checkbox a göre aktif mi pasif mi bilgisini alıyoruz.
+
+        $.ajax({
+            type: 'POST',
+            url: 'aktifPasif.php',  //işlem yaptığımız sayfayı belirtiyoruz
+            data: { id:id, durum: durum }, //datamızı yolluyoruz
+            success: function (result) {
+                $('#sonuc').text(result);
+                //gelen sonucu h2 tagında gösteriyoruz
+            },
+            error: function () {
+                alert('Hata');
+            }
+        });
+    });
+});
+
+
+
+$(document).ready(function () {
+    $('.aktifPasifsss').click(function (event) {
+        var id = $(this).attr("id");  //id değerini alıyoruz
+
+        var durum = ($(this).is(':checked')) ? '1' : '0';
+        //checkbox a göre aktif mi pasif mi bilgisini alıyoruz.
+
+        $.ajax({
+            type: 'POST',
+            url: 'aktifPasifAir.php',  //işlem yaptığımız sayfayı belirtiyoruz
+            data: { id:id, durum: durum }, //datamızı yolluyoruz
+            success: function (result) {
+                $('#sonuc').text(result);
+                //gelen sonucu h2 tagında gösteriyoruz
+            },
+            error: function () {
+                alert('Hata');
+            }
+        });
+    });
+});
+
+    
+$(document).ready(function () {
+    $('.aktifPasifss').click(function (event) {
+        var id = $(this).attr("id");  //id değerini alıyoruz
+
+        var durum = ($(this).is(':checked')) ? '1' : '0';
+        //checkbox a göre aktif mi pasif mi bilgisini alıyoruz.
+
+        $.ajax({
+            type: 'POST',
+            url: 'aktifPasiflight.php',  //işlem yaptığımız sayfayı belirtiyoruz
+            data: { id:id, durum: durum }, //datamızı yolluyoruz
+            success: function (result) {
+                $('#sonuc').text(result);
+                //gelen sonucu h2 tagında gösteriyoruz
+            },
+            error: function () {
+                alert('Hata');
+            }
+        });
+    });
+});
+
+</script>
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
         &#10548;
       </button>
 <script>
@@ -656,6 +583,7 @@ $(function () {
 
 <script src="assets/js/bootstrap.min.js"></script>
 
-</body>
 
+
+</body>
 </html>
