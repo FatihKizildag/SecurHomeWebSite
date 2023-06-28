@@ -50,9 +50,6 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home</a>
               </li>
-              <li class="nav-item @@about__active">
-                <a class="nav-link" href="about.php">About</a>
-              </li>
               <li class="nav-item @@contact__active">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
@@ -123,7 +120,7 @@
                       </h5>
                       <a
                         class="btn btn-style transparent-btn mt-sm-5 mt-4"
-                        href="about.php"
+                        href="#"
                       >
                         Air Condition Remote</a
                       >
@@ -145,7 +142,7 @@
                       </h5>
                       <a
                         class="btn btn-style transparent-btn mt-sm-5 mt-4"
-                        href="about.php"
+                        href="#"
                       >
                         Secur Cam</a
                       >
@@ -416,7 +413,6 @@
               <ul>
                 <h6 class="footer-title-29">Useful Links</h6>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About System</a></li>
                 <li><a href="#blogposts"> Blog posts</a></li>
                 <li><a href="contact.php">Contact us</a></li>
               </ul>

@@ -115,10 +115,6 @@ $conn->close();
               <li class="nav-item @@about__active">
                 <a class="nav-link" href="index.php">Home</a>
               </li>
-              <li class="nav-item @@about__active">
-                <a class="nav-link" href="about.php">About</a>
-              </li>
-              
               <li class="nav-item @@contact__active">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
