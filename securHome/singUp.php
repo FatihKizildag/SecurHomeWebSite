@@ -31,17 +31,17 @@ if (isset($_POST["register"])) {
     } elseif ($user_password != $confirm_password) {
         echo '<script>alert("Passwords do not match.");</script>';
     } else {
-        // Check whether the user with the same phone number exists in the database using the prepared statement
-        $stmt = $conn->prepare("SELECT id FROM users WHERE phone = ?");
-        $stmt->bind_param("s", $phone);
+        // Check whether the user with the same mail exists in the database using the prepared statement
+        $stmt = $conn->prepare("SELECT id FROM users WHERE mail = ?");
+        $stmt->bind_param("s", $mail);
         $stmt->execute();
         $stmt->store_result();
 
-        // If there is a user registered with the same phone number, show an error message
+        // If there is a user registered with the same mail, show an error message
         if ($stmt->num_rows > 0) {
-            echo '<script>alert("There is a previously registered user with this phone number.");</script>';
+            echo '<script>alert("There is a previously registered user with this mail.");</script>';
         } else {
-            // If there is no registered user with the same phone number, add the new user to the database
+            // If there is no registered user with the same mail, add the new user to the database
             $stmt = $conn->prepare("INSERT INTO users (name_surname, mail, user_password, phone) VALUES (?, ? , ? , ?)");
             $stmt->bind_param("ssss", $name_surname, $mail, $user_password, $phone);
 
