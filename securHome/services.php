@@ -87,10 +87,13 @@
 
                             <div class="features-with-17-right-tp_sur">
                                 <div class="features-with-17-left1">
-                                    <span class="fa fa-lock" aria-hidden="true"></span>
+                                    <span class="fa fa-lock" aria-hidden="true"></span>                               
                                     <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                                    <button  style="margin-top: 0px;margin-left: 200px; " class="btn btn-info next ">+</button>
+
                                 </div>
-                        
+
+
 
                                 <div class="features-with-17-left2">
                                     <h5>Doors Locks</h5>
@@ -302,7 +305,7 @@
                                 <div style="margin: 0px auto;width: 337px; ">
                               
                                   <div style="float:left;margin:10px;">
-                                    <p>Bluetooth</p>
+                                    <p>Off - On</p>
                                     <label class="switch">
                                       <input type="checkbox" checked>
                                       <span class="slider round"></span>
