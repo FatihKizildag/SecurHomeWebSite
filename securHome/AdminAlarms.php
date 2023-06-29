@@ -98,9 +98,9 @@ $alarmsAsk->execute();
                                     <tr>
                                         <th scope="row"><?php echo $counter ?></th>
                                         <td>Home-<?php echo $alarmsGet['id'] ?></td>
-                                        <td><?php echo $alarmsGet['user_name'] ?></td>
+                                        <td><?php echo $alarmsGet['username'] ?></td>
                                         <td><?php echo $alarmsGet['error'] ?></td>
-                                        <td><p style="Color:red">&#33; <?php echo $alarmsGet['status'] ?>  </p>  </td>
+                                        <td><p style="Color:red">&#33; <?php echo $alarmsGet['stat'] ?>  </p>  </td>
                                     </tr>
                                     <?php
                                     $counter++; // Her alarm eklenince değeri bir artır

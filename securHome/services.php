@@ -16,7 +16,9 @@
     <title>Secure Home | Services</title>
     <link href="assets/css/switch.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/style-starter.css" />
+    <link rel="stylesheet" href="assets/css/form.css">
 </head>
+
 
 <body>
 <header class="w3l-header-nav">
@@ -85,8 +87,126 @@
                             <div class="features-with-17-right-tp_sur">
                                 <div class="features-with-17-left1">
                                     <span class="fa fa-lock" aria-hidden="true"></span>                               
-                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
-                                    <button  style="margin-top: 0px;margin-left: 200px; " class="btn btn-info next ">+</button>
+                                   
+
+                                    <button id="alarmButton" style="margin-top: 0px; margin-left: 160px;" class="btn btn-info next">Alarm</button>
+                                    <button style="margin-top: -10px; margin-left: 200px;" class="btn btn-info next" onclick="openForm()">Add</button>
+
+                                    <div id="alarmForm" style="display: none;">
+  <form id="myForm">
+
+
+    <label for="type">Door Type:</label>
+    <input type="text" id="type" name="type" required><br><br>
+
+    <label for="who">On - Off</label>
+    <input type="text" id="who" placeholder="enter 1 or 0" name="who"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<script>
+  function openForm() {
+    document.getElementById("alarmForm").style.display = "block";
+  }
+
+  // Form gönderildiğinde
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    // Formu sıfırlamadan önce submit olayını engellemek için bir süre bekleyin
+    event.preventDefault();
+
+    // Form verilerini alın
+    var type = document.getElementById("type").value;
+    var who = document.getElementById("who").value;
+
+    // Type alanının boş olup olmadığını kontrol edin
+    if (type.trim() === "") {
+      alert("cannot be empty");
+      return; // Formun gönderimini durdurun
+    }
+
+    // AJAX ile sunucuya verileri gönderin
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText); // Yanıtı konsola yazdırabilir veya başka bir işlem yapabilirsiniz
+
+        // Formu sıfırlayın
+        document.getElementById("myForm").reset();
+
+        // Sayfayı yeniden yükleyin
+        location.reload();
+      }
+    };
+    xhttp.open("POST", "addDoor.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("&type=" + type + "&who=" + who);
+  });
+</script>
+<div id="alarmForm" style="display: none;">
+  <form id="myForm">
+
+
+    <label for="type">Door Type:</label>
+    <input type="text" id="type" name="type" required><br><br>
+
+    <label for="who">On - Off</label>
+    <input type="text" id="who" placeholder="enter 1 or 0" name="who"><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<script>
+  function openForm() {
+    document.getElementById("alarmForm").style.display = "block";
+  }
+
+  // Form gönderildiğinde
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    // Formu sıfırlamadan önce submit olayını engellemek için bir süre bekleyin
+    event.preventDefault();
+
+    // Form verilerini alın
+    var type = document.getElementById("type").value;
+    var who = document.getElementById("who").value;
+
+    // Type alanının boş olup olmadığını kontrol edin
+    if (type.trim() === "") {
+      alert("Door Type cannot be empty");
+      return; // Formun gönderimini durdurun
+    }
+
+    // AJAX ile sunucuya verileri gönderin
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText); // Yanıtı konsola yazdırabilir veya başka bir işlem yapabilirsiniz
+
+        // Formu sıfırlayın
+        document.getElementById("myForm").reset();
+
+        // Sayfayı yeniden yükleyin
+        location.reload();
+      }
+    };
+    xhttp.open("POST", "addDoor.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("&type=" + type + "&who=" + who);
+  });
+</script>
+
+
+
+  <script>
+    function openForm() {
+      document.getElementById("alarmForm").style.display = "block";
+    }
+  </script>
+
+
+
+                                    
+
 
                                 </div>
 
@@ -140,7 +260,7 @@
                             <div class="features-with-17-right-tp_sur">
                                 <div class="features-with-17-left1">
                                     <span class="fa fa-thermometer" aria-hidden="true"></span>
-                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                                    <button id="alarmButtonair" style="margin-top: 0px; margin-left: 150px;" class="btn btn-info next">Alarm</button>
                                 </div>
                                 <div class="features-with-17-left2">
                                     <h5>Air Conditioning </h5>
@@ -201,7 +321,7 @@
                             <div class="features-with-17-right-tp_sur">
                                 <div class="features-with-17-left1">
                                     <span class="fa fa-lightbulb-o" aria-hidden="true"></span>
-                                    <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                                    <button id="alarmButtonlight" style="margin-top: 0px; margin-left: 150px;" class="btn btn-info next">Alarm</button>
                                 </div>
                         
 
@@ -254,7 +374,7 @@
                     <div class="features-with-17-right-tp_sur">
                         <div class="features-with-17-left1">
                             <span class="fa fa-television" aria-hidden="true"></span>
-                            <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                            <button id="alarmButtoncam" style="margin-top: 0px; margin-left: 150px;" class="btn btn-info next">Alarm</button>
                         </div>
                         <div class="features-with-17-left2">
                             <h5>Cameras</h5>
@@ -291,7 +411,7 @@
                     <div class="features-with-17-right-tp_sur">
                         <div class="features-with-17-left1">
                             <span class="fa fa-music  " aria-hidden="true"></span>
-                            <button  style="margin-top: 0px;margin-left: 150px; " class="btn btn-info next ">Alarm</button>
+                            <button id="alarmBdddutton" style="margin-top: 0px; margin-left: 150px;" class="btn btn-info next">Alarm</button>
                         </div>
                         <div class="features-with-17-left2">
                             <h5>Music Box</h5>
@@ -578,7 +698,77 @@ $(function () {
 <!-- disable body scroll which navbar is in active -->
 
 <script src="assets/js/bootstrap.min.js"></script>
-
+<script>
+        $(document).ready(function() {
+            // Butona tıklanma olayını dinle
+            $('#alarmButtonlight').click(function() {
+                // AJAX isteği gönder
+                $.ajax({
+                    type: 'POST',
+                    url: 'alarm_eklelight.php',
+                    success: function(response) {
+                        console.log(response); // Yanıtı konsola yazdır (isteğe bağlı)
+                        alert('Alarm added.');
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText); // Hata mesajını konsola yazdır (isteğe bağlı)
+                        alert('Alarm ekleme sırasında bir hata oluştu.');
+                    }
+                });
+            });
+            $('#alarmButton').click(function() {
+                // AJAX isteği gönder
+                $.ajax({
+                    type: 'POST',
+                    url: 'alarm_ekle.php',
+                    success: function(response) {
+                        console.log(response); // Yanıtı konsola yazdır (isteğe bağlı)
+                        alert('Alarm added.');
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText); // Hata mesajını konsola yazdır (isteğe bağlı)
+                        alert('Alarm ekleme sırasında bir hata oluştu.');
+                    }
+                });
+            });
+            $('#alarmButtonair').click(function() {
+                // AJAX isteği gönder
+                $.ajax({
+                    type: 'POST',
+                    url: 'alarm_ekleair.php',
+                    success: function(response) {
+                        console.log(response); // Yanıtı konsola yazdır (isteğe bağlı)
+                        alert('Alarm added.');
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText); // Hata mesajını konsola yazdır (isteğe bağlı)
+                        alert('Alarm ekleme sırasında bir hata oluştu.');
+                    }
+                });
+            });
+            $('#alarmButtoncam').click(function() {
+                // AJAX isteği gönder
+                $.ajax({
+                    type: 'POST',
+                    url: 'alarm_eklecameras.php',
+                    success: function(response) {
+                        console.log(response); // Yanıtı konsola yazdır (isteğe bağlı)
+                        alert('Alarm added.');
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText); // Hata mesajını konsola yazdır (isteğe bağlı)
+                        alert('Alarm ekleme sırasında bir hata oluştu.');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+  function showForm() {
+    var form = document.getElementById("myForm");
+    form.style.display = "block";
+  }
+</script>
 
 
 </body>
