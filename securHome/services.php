@@ -47,9 +47,6 @@
               <li class="nav-item @@services__active">
                 <a class="nav-link" href="index.php">Home</a>
               </li>
-              <li class="nav-item @@about__active">
-                <a class="nav-link" href="about.php">About</a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="services.php">Services</a>
               </li>

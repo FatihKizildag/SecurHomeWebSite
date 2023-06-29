@@ -1,3 +1,9 @@
+<?php 
+include "./connection/connect.php";
+
+$alarmsAsk=$db->prepare("select * from alarms");
+$alarmsAsk->execute();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,67 +85,29 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Home ID</th>
                                             <th scope="col">User Name</th>
-                                            
                                             <th scope="col">Error</th>
-                                            <th scope="col">Error Code</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Home-12</td>
-                                            <td>Doe</td>
-                                            
-                                            <td>High Temperature</td>
-                                            <td>123</td>
-                                            <td><p style="Color:red">&#33; Alarms  </p>  </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Home-2</td>
-                                            <td>Otto</td>
-                                            
-                                            <td>Low Battery</td>
-                                            <td>456</td>
-                                            <td><p style="Color:red">&#33; Alarms  </p>  </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Home-82</td>
-                                            <td>Thornton</td>
-                                            
-                                            <td>Locks</td>
-                                            <td>789</td>
-                                            <td><p style="Color:red">&#33; Alarms  </p>  </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Home-88</td>
-                                            <td>Doe</td>
-                                            
-                                            <td>High Temperature</td>
-                                            <td>123</td>
-                                            <td><p style="Color:green">&#10003; Solved </p> </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">5</th>
-                                            <td>Home-17</td>
-                                            <td>Otto</td>
-                                            
-                                            <td>Locks</td>
-                                            <td>789</td>
-                                            <td><p style="Color:green">&#10003; Solved </p> </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">6</th>
-                                            <td>Home-5 </td>
-                                            <td>Thornton</td>
-                                            
-                                            <td>Fire</td>
-                                            <td>78</td>
-                                            <td><p style="Color:green">&#10003; Solved </p> </td>
-                                        </tr>
+                                                                    <?php
+                                $counter = 1; // Başlangıç değeri 1
+
+                                while ($alarmsGet = $alarmsAsk->fetch(PDO::FETCH_ASSOC)) {
+                                    ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $counter ?></th>
+                                        <td>Home-<?php echo $alarmsGet['id'] ?></td>
+                                        <td><?php echo $alarmsGet['user_name'] ?></td>
+                                        <td><?php echo $alarmsGet['error'] ?></td>
+                                        <td><p style="Color:red">&#33; <?php echo $alarmsGet['status'] ?>  </p>  </td>
+                                    </tr>
+                                    <?php
+                                    $counter++; // Her alarm eklenince değeri bir artır
+                                }
+                                ?>
+
+                                      
                                     </tbody>
                                 </table>
                             </div>
@@ -149,7 +117,6 @@
                                 <div class="btn-group me-2" role="group" aria-label="First group">
                                     <button type="button" class="btn btn-primary">1</button>
                                     <button type="button" class="btn btn-primary">2</button>
-                                    <button type="button" class="btn btn-primary">3</button>
                                 
                             </div>
       </div>
