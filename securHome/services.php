@@ -110,12 +110,12 @@
                                                         //verileri yazıyoruz
                                                         while ($sonuc = $sorgu->fetch_assoc()) {?>
                                                             <tr>
-                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['doorID'] ?></td>
                                                                 <td><?php echo $sonuc['baslik'] ?></td>
                 
                                                                 <td>
                                                                     <label class="switch">
-                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <input type="checkbox" id='<?php echo $sonuc['doorID'] ?>' class="aktifPasif" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
                                                                         <span class="slider round"></span>
                                                                     </label>
                                                                 </td>
@@ -166,12 +166,12 @@
                                                         //verileri yazıyoruz
                                                         while ($sonuc = $sorgu->fetch_assoc()) {?>
                                                             <tr>
-                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['acID'] ?></td>
                                                                 <td><?php echo $sonuc['baslik'] ?></td>
                 
                                                                 <td>
                                                                     <label class="switch">
-                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasifsss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <input type="checkbox" id='<?php echo $sonuc['acID'] ?>' class="aktifPasifsss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
                                                                         <span class="slider"></span>
                                                                     </label>
                                                                 </td>
@@ -223,12 +223,12 @@
                                                         //verileri yazıyoruz
                                                         while ($sonuc = $sorgu->fetch_assoc()) {?>
                                                             <tr>
-                                                                <td><?php echo $sonuc['id'] ?></td>
+                                                                <td><?php echo $sonuc['lightID'] ?></td>
                                                                 <td><?php echo $sonuc['baslik'] ?></td>
                 
                                                                 <td>
                                                                     <label class="switch">
-                                                                        <input type="checkbox" id='<?php echo $sonuc['id'] ?>' class="aktifPasifss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
+                                                                        <input type="checkbox" id='<?php echo $sonuc['lightID'] ?>' class="aktifPasifss" <?php echo $sonuc['aktif']==1?'checked':'' ?>  />
                                                                         <span class="slider round"></span>
                                                                     </label>
                                                                 </td>

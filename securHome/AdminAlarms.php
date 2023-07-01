@@ -1,9 +1,15 @@
 <?php 
-include "./connection/connect.php";
+include "delete_alarm.php";
+include "update_status.php";
 
-$alarmsAsk=$db->prepare("select * from alarms");
+
+$pdo = new PDO("mysql:host=localhost;dbname=securhome", "root", ""); // Veritabanı bağlantısı için gerekli olan PDO nesnesini oluşturunuz
+
+$alarmsAsk = $pdo->prepare("SELECT * FROM alarms");
 $alarmsAsk->execute();
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +20,7 @@ $alarmsAsk->execute();
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Secure Home | Home</title>
+    <title>Secure Home | Alarms</title>
 
     <link
       href="//fonts.googleapis.com/css?family=Spartan:400,500,600,700,900&display=swap"
@@ -57,7 +63,7 @@ $alarmsAsk->execute();
                 <a class="nav-link" href="AdminAlarms.php">Alarms</a>
               </li>
               <li class="nav-item @@about__active">
-                <a class="nav-link" href="Users.php">Users</a>
+                <a class="nav-link" href="users.php">Users</a>
               </li>
               <li class="nav-item @@contact__active">
                 <a class="nav-link" href="messages.php">Messages</a>
@@ -82,50 +88,59 @@ $alarmsAsk->execute();
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Home ID</th>
-                                            <th scope="col">User Name</th>
+                                            <th scope="col">Alarm ID</th>
+                                            <th scope="col">User ID</th>
+                                            <th scope="col">Name Surname</th>
                                             <th scope="col">Error</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                                                    <?php
-                                $counter = 1; // Başlangıç değeri 1
+                                          <?php
+                                            while ($alarmsGet = $alarmsAsk->fetch(PDO::FETCH_ASSOC)) {
+                                                $userID = $alarmsGet['userID'];
 
-                                while ($alarmsGet = $alarmsAsk->fetch(PDO::FETCH_ASSOC)) {
-                                    ?>
-                                    <tr>
-                                        <th scope="row"><?php echo $counter ?></th>
-                                        <td>Home-<?php echo $alarmsGet['id'] ?></td>
-                                        <td><?php echo $alarmsGet['user_name'] ?></td>
-                                        <td><?php echo $alarmsGet['error'] ?></td>
-                                        <td><p style="Color:red">&#33; <?php echo $alarmsGet['status'] ?>  </p>  </td>
-                                    </tr>
-                                    <?php
-                                    $counter++; // Her alarm eklenince değeri bir artır
-                                }
-                                ?>
+                                                // users tablosundan name_surname değerini al
+                                                $userAsk = $pdo->prepare("SELECT name_surname FROM users WHERE id = :userID");
+                                                $userAsk->bindParam(':userID', $userID);
+                                                $userAsk->execute();
+                                                $userGet = $userAsk->fetch(PDO::FETCH_ASSOC);
+                                                $nameSurname = $userGet['name_surname'];
 
-                                      
+                                                ?>
+                                                <tr>
+                                                    <th scope="row"><?php echo $alarmsGet['alarmID'] ?></th>
+                                                    <td>User-<?php echo $userID ?></td>
+                                                    <td><?php echo $nameSurname ?></td>
+                                                    <td><?php echo $alarmsGet['error'] ?></td>
+                                                    <td>
+                                                        <?php if ($alarmsGet['status'] == 'solved') { ?>
+                                                            <button class="btn btn-success" disabled>Solved</button>
+                                                            <?php if ($alarmsGet['status'] == 'solved') { ?>
+                                                                <form action="delete_alarm.php" method="POST" style="display: inline;">
+                                                                    <input type="hidden" name="alarmID" value="<?php echo $alarmsGet['alarmID']; ?>">
+                                                                    <button type="submit" class="btn btn-secondary">Delete</button>
+                                                                </form>
+                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                            <form action="update_status.php" method="POST" style="display: inline;">
+                                                                <input type="hidden" name="alarmID" value="<?php echo $alarmsGet['alarmID']; ?>">
+                                                                <button type="submit" class="btn btn-danger">Alarm</button>
+                                                            </form>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                          ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-toolbar" role="toolbar" style="position:relative;margin: auto;" >
-                                <div class="btn-group me-2" role="group" aria-label="First group">
-                                    <button type="button" class="btn btn-primary">1</button>
-                                    <button type="button" class="btn btn-primary">2</button>
-                                
-                            </div>
-      </div>
-
-    
-      
-
-
-      
+                    <button onclick="topFunction()" id="movetop" title="Go to top">
+        &#10548;
+      </button>
     </section>
 
     
