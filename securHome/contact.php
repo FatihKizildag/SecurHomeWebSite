@@ -81,9 +81,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <li class="nav-item @@about__active">
                 <a class="nav-link" href="index.php">Home</a>
               </li>
-              <li class="nav-item @@about__active">
-                <a class="nav-link" href="about.php">About</a>
-              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="contact.php">Contact</a>
               </li>
@@ -254,7 +251,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <ul>
                 <h6 class="footer-title-29">Useful Links</h6>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About System</a></li>
                 <li><a href="contact.php">Contact us</a></li>
               </ul>
             </div>
