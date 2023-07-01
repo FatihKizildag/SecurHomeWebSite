@@ -413,7 +413,6 @@
               <ul>
                 <h6 class="footer-title-29">Useful Links</h6>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#blogposts"> Blog posts</a></li>
                 <li><a href="contact.php">Contact us</a></li>
               </ul>
             </div>

@@ -1,6 +1,5 @@
 <?php 
-include "./connection/connect.php";
-
+include "./delete_message.php";
 $commentAsk=$db->prepare("select * from comment");
 $commentAsk->execute();
 ?>
@@ -57,7 +56,7 @@ $commentAsk->execute();
                 <a class="nav-link" href="AdminAlarms.php">Alarms</a>
               </li>
               <li class="nav-item @@alarms__active">
-                <a class="nav-link" href="Users.php">Users</a>
+                <a class="nav-link" href="users.php">Users</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="messages.php">Messages</a>
@@ -69,9 +68,8 @@ $commentAsk->execute();
         </div>
       </nav>
     </header>
-                                                  <!--header-->
-    
-                                                  <section>
+
+  <section>
     <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
             <div class="col-sm-12 col-md-6 col-xl-12">
@@ -83,16 +81,20 @@ $commentAsk->execute();
                     while ($commentGet = $commentAsk->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                         <div class="d-flex align-items-center border-bottom py-3">
-                            <img class="rounded-circle flex-shrink-0" src="assets/images/user1.jpg" alt=""
-                                 style="width: 40px; height: 40px;">
-                            <div class="w-100 ms-3">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-0"><?php echo $commentGet['name'] ?></h6>
-                                    <small><?php echo $commentGet['email'] ?></small>
-                                </div>
-                                <span><?php echo $commentGet['message'] ?></span>
-                            </div>
-                        </div>
+                          <img class="rounded-circle flex-shrink-0" src="assets/images/user1.jpg" alt=""
+                              style="width: 40px; height: 40px;">
+                          <div class="w-100 ms-3">
+                              <div class="d-flex w-100 justify-content-between">
+                                  <h6 class="mb-0"><?php echo $commentGet['name'] ?></h6>
+                                  <small><?php echo $commentGet['email'] ?></small>
+                              </div>
+                              <span><?php echo $commentGet['message'] ?></span>
+                          </div>
+                          <form method="POST" action="delete_message.php">
+                          <input type="hidden" name="messageID" value="<?php echo $commentGet['messageID']; ?>">
+                              <button type="submit" class="btn btn-danger">Sil</button>
+                          </form>
+                      </div>
                     <?php } ?>
                 </div>
             </div>

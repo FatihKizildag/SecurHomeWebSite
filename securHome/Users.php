@@ -52,26 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css" />
-  <style>
-    /* Stil örnekleri */
-    h1 {
-      color: #333;
-    }
-    .table-container {
-      background-color: #f8f9fa;
-      padding: 20px;
-    }
-    .btn-delete {
-      color: #fff;
-      background-color: #dc3545;
-      border-color: #dc3545;
-    }
-    .btn-delete:hover {
-      color: #fff;
-      background-color: #c82333;
-      border-color: #bd2130;
-    }
-  </style>
+  
 </head>
 <body>
   <!--header-->
@@ -91,10 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item @@contact__active">
-              <a class="nav-link" href="AdminAlarms.php">Alarms</a>
+              <a class="nav-link" href="adminAlarms.php">Alarms</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="Users.php">Users</a>
+              <a class="nav-link" href="users.php">Users</a>
             </li>
             <li class="nav-item @@contact__active">
               <a class="nav-link" href="messages.php">Messages</a>
@@ -115,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">User ID</th>
                 <th scope="col">Name Surname</th>
                 <th scope="col">Email</th>
@@ -125,22 +105,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </thead>
             <tbody>
               <?php
-              $counter = 1;
               while ($userGet = $userAsk->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                 <tr>
-                  <th scope="row"><?php echo $counter; ?></th>
                   <td><?php echo $userGet['id'] ?></td>
                   <td><?php echo $userGet['name_surname'] ?></td>
                   <td><?php echo $userGet['mail'] ?></td>
                   <td><?php echo $userGet['phone'] ?></td>
                   <td>
+                    <button class="btn btn-info btn-sm btn-info:hover">Devices</button>
                     <button class="btn btn-danger btn-sm btn-delete" onclick="deleteUser(<?php echo $userGet['id']; ?>)">
                       Delete
                     </button>
                   </td>
                 </tr>
-                <?php $counter++;
+                <?php 
               } ?>
             </tbody>
           </table>

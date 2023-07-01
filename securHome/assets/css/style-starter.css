@@ -2639,8 +2639,8 @@ fieldset:disabled a.btn {
   border-color: #17a2b8;
 }
 .btn-info:hover {
-  color: #138496;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #138496;
   border-color: #117a8b;
 }
 .btn-info:focus,
@@ -2721,6 +2721,17 @@ fieldset:disabled a.btn {
   background-color: #c82333;
   border-color: #bd2130;
   box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+}
+
+.btn-delete {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-delete:hover {
+  color: #fff;
+  background-color: #c21426;
+  border-color: #bb1b2b;
 }
 .btn-danger.disabled,
 .btn-danger:disabled {
@@ -6674,6 +6685,10 @@ button.bg-dark:focus {
 
 .d-table-cell {
   display: table-cell !important;
+}
+.table-container {
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .d-flex {
